@@ -1,0 +1,17 @@
+import json
+def lambda_handler(event, context):
+   #INPUTS
+   object_data1 = {"a":{"b":{"c":"d"}}} 
+   key1 = "a/b/c"
+   
+   def return_value(object_data,key):
+       keys = key.split("/")
+       print (keys)
+       for key in keys:
+           print ("in func:", object_data[key])
+           object_data=object_data[key]
+        return object_data
+        
+   func_resp = return_value(object_data1,key1) #function call
+   
+   print (func_resp)  #result
